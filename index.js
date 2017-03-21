@@ -29,18 +29,35 @@ const Calculator = {
   },
 
   //setting up the category markup
-  categoryMarkup(category) {
-    switch (category) {
-      case 'drug': case 'drugs': case 'pharmaceuticals': case 'pharma':
-        return drug;
-      case 'food':
-        return food;
-      case 'electronics':
-        return electronics;
-      default:
-        return defaultMarkup;
-    }
-  },
+  // categoryMarkup(category) {
+  //   switch (category) {
+  //     case 'drug': case 'drugs': case 'pharmaceuticals': case 'pharma':
+  //       return drug;
+  //     case 'food':
+  //       return food;
+  //     case 'electronics':
+  //       return electronics;
+  //     default:
+  //       return defaultMarkup;
+  //   }
+  // },
+
+  //attempt to change the switch case into object literals
+categoryMarkup(category) {
+    let categories = {
+    'food' : food,
+    'electronics': electronics,
+    'default': defaultMarkup
+  };
+  /* 'drug' : drug,
+  'drugs': drug,
+  'pharmaceuticals': drug,
+  'pharma': drug, */
+  categories.drug = categories.drugs = categories.pharmaceuticals = categories.pharma = drug;
+
+  return (categories[category] || categories['default'])
+},
+
 
   //function to calculate the markup per worker. people variable to check to make sure that people # is valid
   personsMarkup(workers) {
