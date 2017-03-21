@@ -1,13 +1,13 @@
 // Set the markup rates
-const flat = 0.05;
-const drug = 0.075;
-const food = 0.13;
-const electronics = 0.02;
-const persons = 0.012;
-const defaultMarkup = 0;
+const FLAT = 0.05;
+const DRUG = 0.075;
+const FOOD = 0.13;
+const ELECTRONICS = 0.02;
+const PERSONS = 0.012;
+const DEFAULT= 0;
 
 //function to calculate the cost of the project
-const Calculator = {
+const CALCULATOR = {
 
   calculate(basePrice, quantity, category) {
     //if basePrice is not a number, then parse it, and throw an error to ask for a baseprice as a float
@@ -22,38 +22,20 @@ const Calculator = {
     }
 
     //function to calculate the total cost
-    let flatMarkupBaseCost = basePrice * (1 + flat);
+    let flatMarkupBaseCost = basePrice * (1 + FLAT);
     let personsCost = flatMarkupBaseCost + (flatMarkupBaseCost * this.personsMarkup(quantity))
     let finalCost = personsCost + (flatMarkupBaseCost * this.categoryMarkup(category));
     return Number(Math.round(finalCost+ 'e2') + 'e-2');
   },
 
-  //setting up the category markup
-  // categoryMarkup(category) {
-  //   switch (category) {
-  //     case 'drug': case 'drugs': case 'pharmaceuticals': case 'pharma':
-  //       return drug;
-  //     case 'food':
-  //       return food;
-  //     case 'electronics':
-  //       return electronics;
-  //     default:
-  //       return defaultMarkup;
-  //   }
-  // },
-
-  //attempt to change the switch case into object literals
+  //changed the switch case into object literals for the category markup
 categoryMarkup(category) {
     let categories = {
-    'food' : food,
-    'electronics': electronics,
-    'default': defaultMarkup
+    'food' : FOOD,
+    'electronics': ELECTRONICS,
+    'default': DEFAULT
   };
-  /* 'drug' : drug,
-  'drugs': drug,
-  'pharmaceuticals': drug,
-  'pharma': drug, */
-  categories.drug = categories.drugs = categories.pharmaceuticals = categories.pharma = drug;
+  categories.drug = categories.drugs = categories.pharmaceuticals = categories.pharma = DRUG;
 
   return (categories[category] || categories['default'])
 },
@@ -62,10 +44,10 @@ categoryMarkup(category) {
   //function to calculate the markup per worker. people variable to check to make sure that people # is valid
   personsMarkup(workers) {
     let people = parseInt(workers) === workers && workers >= 0;
-    return people ? workers * persons : 0;
+    return people ? workers * PERSONS : 0;
   }
 
 };
 
 //export this to the test.js file
-export default Calculator;
+export default CALCULATOR;
