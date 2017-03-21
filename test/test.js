@@ -1,13 +1,4 @@
-// var assert = require('assert');
-// describe('Array', function() {
-//   describe('#indexOf()', function() {
-//     it('should return -1 when the value is not present', function() {
-//       assert.equal(-1, [1,2,3].indexOf(4));
-//     });
-//   });
-// });
-
-import Calculator from './';
+import Calculator from '../';
 let chai = require('chai');
 chai.should();
 
@@ -25,15 +16,19 @@ describe('Calculator', () => {
       Calculator.calculate(12456.95, 4, 'books').should.equal(13707.63);
     });
 
-    it('should throw error if the basePrice is invalid', () => {
-      (function() {
-        Calculator.calculate('randomstring', 3, 'drugs');
-      }).should.throw(Error, /randomstring is invalid, it should be type float/);
+    it('should produce $1,591.59 given $1300, 3 people, food', () => {
+      Calculator.calculate(1300, 3.0, 'food').should.equal(1591.59);
     });
-  }), //ends calculate
+
+    it('should throw invalid argument error if basePrice is invalid', () => {
+      (function() {
+        Calculator.calculate('blah', 1, 'drugs');
+      }).should.throw(Error, /Invalid argument blah, it should be type Float/);
+    });
+  }); //ends calculate
 
   describe('categoryMarkup', () => {
-    it('should return 7.5% given category is drug or drugs, pharmaceuticals or pharma', () => {
+    it('should return 7.5% given category is drug or drugs, pharmaceuticals', () => {
       Calculator.categoryMarkup('drug').should.equal(0.075);
       Calculator.categoryMarkup('drugs').should.equal(0.075);
       Calculator.categoryMarkup('pharmaceuticals').should.equal(0.075);
@@ -53,7 +48,7 @@ describe('Calculator', () => {
       Calculator.categoryMarkup(undefined).should.equal(0);
       Calculator.categoryMarkup('foobar').should.equal(0);
     });
-  }), //ends categoryMarkup
+  }); //ends categoryMarkup
 
   describe('personsMarkup', () => {
     it('should return 1.2% per staff required', () => {
@@ -66,5 +61,5 @@ describe('Calculator', () => {
       Calculator.personsMarkup(-5).should.equal(0);
       Calculator.personsMarkup(2.6).should.equal(0);
     });
-  }), //ends personsMarkup
-}); //ends the Calculator
+  }); //ends personsMarkup
+}); //ends Calculator
