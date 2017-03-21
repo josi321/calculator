@@ -20,10 +20,10 @@ describe('Calculator', () => {
       Calculator.calculate(1300, 3.0, 'food').should.equal(1591.59);
     });
 
-    it('should throw invalid argument error if basePrice is invalid', () => {
+    it('should throw error if basePrice is invalid', () => {
       (function() {
         Calculator.calculate('blah', 1, 'drugs');
-      }).should.throw(Error, /Invalid argument blah, it should be type Float/);
+      }).should.throw(Error);
     });
   }); //ends calculate
 
@@ -57,9 +57,9 @@ describe('Calculator', () => {
 
     it('should return 0 if no staff given or invalid input', () => {
       Calculator.personsMarkup(0).should.equal(0);
-      Calculator.personsMarkup('foobar').should.equal(0);
-      Calculator.personsMarkup(-5).should.equal(0);
-      Calculator.personsMarkup(2.6).should.equal(0);
+      Calculator.personsMarkup('hi').should.equal(0);
+      Calculator.personsMarkup(-1).should.equal(0);
+      Calculator.personsMarkup(1.5).should.equal(0);
     });
   }); //ends personsMarkup
 }); //ends Calculator

@@ -11,7 +11,7 @@ const Calculator = {
 
   calculate(basePrice, quantity, category) {
     //if basePrice is not a number, then parse it, and throw an error to ask for a baseprice as a float
-    if (isNaN(parseFloat(basePrice))) {
+    if (isNaN(basePrice)){
       throw new Error(`${basePrice} is not a number and is invalid. It should be type float`);
     }
     //if the basePrice is type string, then parse it
