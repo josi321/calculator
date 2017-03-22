@@ -25,6 +25,6 @@ example 3:
 <p>output: $13707.63 </p>
 
 <h1>Installation</h1>
-<p> This calculator script requires that you install all the dependencies needed to run and to test the file. The dependencies are listed in the package.json file. This script is writen in javascript/ES6, which requires babel, and the testing framework is mocha chai. </p>
+<p> This calculator script requires that you install all the dependencies needed to run and to test the file. The dependencies are listed in the package.json file. This script is writen in javascript/ES6, which requires babel, and the testing framework is mocha(v 3.2.0) chai(v 3.5.0). </p>
 <p>Download the markup calculator folder, and go to this folder's location in your terminal. Run <strong>npm install</strong> to install all the dependencies. To test the file, type in your terminal <strong>npm test</strong>. </p>
 
