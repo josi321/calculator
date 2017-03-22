@@ -7,7 +7,7 @@ const PERSONS = 0.012;
 const DEFAULT= 0;
 
 //function to calculate the cost of the project
-const CALCULATOR = {
+class Calculator{
 
   calculate(basePrice, quantity, category) {
     //if basePrice is not a number, then parse it, and throw an error to ask for a baseprice as a float
@@ -26,7 +26,7 @@ const CALCULATOR = {
     let personsCost = flatMarkupBaseCost + (flatMarkupBaseCost * this.personsMarkup(quantity))
     let finalCost = personsCost + (flatMarkupBaseCost * this.categoryMarkup(category));
     return Number(Math.round(finalCost+ 'e2') + 'e-2');
-  },
+  }
 
   //changed the switch case into object literals for the category markup
 categoryMarkup(category) {
@@ -38,7 +38,7 @@ categoryMarkup(category) {
   categories.drug = categories.drugs = categories.pharmaceuticals = categories.pharma = DRUG;
 
   return (categories[category] || categories['default'])
-},
+}
 
 
   //function to calculate the markup per worker. people variable to check to make sure that people # is valid
@@ -49,5 +49,6 @@ categoryMarkup(category) {
 
 };
 
+module.exports = Calculator
 //export this to the test.js file
-export default CALCULATOR;
+// export default CALCULATOR;
