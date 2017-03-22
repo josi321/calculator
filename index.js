@@ -49,6 +49,6 @@ categoryMarkup(category) {
 
 };
 
-module.exports = Calculator
+module.exports = Calculator;
 //export this to the test.js file
 // export default CALCULATOR;
