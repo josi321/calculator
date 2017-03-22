@@ -28,3 +28,6 @@ example 3:
 <p> This calculator script requires that you install all the dependencies needed to run and to test the file. The dependencies are listed in the package.json file. This script is writen in javascript/ES6, which requires babel(v6.23.0), and the testing framework is mocha(v 3.2.0) chai(v 3.5.0). </p>
 <p>Download the markup calculator folder, and go to this folder's location in your terminal. Run <strong>npm install</strong> to install all the dependencies. To test the file, type in your terminal <strong>npm test</strong>. </p>
 
+<h1>Reflection</h1>
+<p>This project was challenging yet rewarding. It was difficult in the sense that I initially wrote the code in "old school" javascript and later then had to refactor it into ES6 to match current trends of Javascript.  Secondly, I have never worked with testing frameworks prior to this project. I had to learn by reading the documentation for mocha and chai and then implement testing with my ES6 code. The testing process for me was trial and error, with each error, I tried different ways of writing it until the problem is resolved. </p>
+
