@@ -1,6 +1,6 @@
 <h1> Markup Calculator </h1>
 <p>This is a markup calculator for Nulogy's coding challenge. It is writen in Javascript/ES6, and mocha chai is used as the testing framework.
-The objective of this calculator is to calculate the total cost of packaging materials given an input price, a flat markup, a markup depending on the category (drugs, food, electronics, other), and a markup depending on the number of workers required to get the work down.</p>
+The objective of this calculator is to calculate the total cost of packaging materials given an input price, a flat markup, a markup depending on the category (drugs, food, electronics, other), and a markup depending on the number of workers required to get the work done.</p>
 
 <p>The markup calculator should produce the following given: </p>
 <p>*for each person that needs to work on the job, there is a markup of 1.2%</p>
